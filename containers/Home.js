@@ -69,14 +69,16 @@ const Home = (props) => {
   return (
     <>
       <View style={styles.container}>
-        <View style={styles.searchBox}>
-          <Icon name="search" size={20} style={styles.icon} />
-          <TextInput
-            placeholder="Search by name"
-            style={styles.input}
-            value={searchString}
-            onChangeText={(text) => setSearchString(text)}
-          />
+        <View style={styles.searchWrapper}>
+          <View style={styles.searchBox}>
+            <Icon name="search" size={20} style={styles.icon} />
+            <TextInput
+              placeholder="Search by name"
+              style={styles.input}
+              value={searchString}
+              onChangeText={(text) => setSearchString(text)}
+            />
+          </View>
         </View>
         <FlatList
           data={usersList}
@@ -124,9 +126,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#eee",
-    marginTop: 80,
+    paddingTop: 100,
     position: 'relative'
   },
+  searchWrapper: {
+    position: 'absolute',
+    top: 30,
+    zIndex: 10,
+    padding: 10,
+    width: '100%',
+    backgroundColor: "#fff",
+   },
   searchBox: {
     width: "86%",
     height: 50,
@@ -136,9 +146,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingLeft: 15,
     paddingRight: 15,
-    position: 'fixed',
-    top: 15,
-    zIndex: 1
   },
   icon: {
     alignSelf: "center",
@@ -146,7 +153,6 @@ const styles = StyleSheet.create({
   input: {
     width: "100%",
     marginLeft: 10,
-    outlineStyle: 'none'
   },
   modalView: {
     width: Dimensions.get("window").width,

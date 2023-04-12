@@ -43,7 +43,6 @@ export default UserCard;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
-    height: 'fit-content',
     width: "90%",
     borderRadius: 15,
     marginTop: 20,
@@ -59,7 +58,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get("window").width > 460 ? 80 : 60,
     width: Dimensions.get("window").width > 460 ? 80 : 60,
     resizeMode: "contain",
-    borderRadius: "50%",
+    borderRadius: Dimensions.get("window").width > 460 ? 40 : 30,
     marginRight: 15,
     marginBottom: 15
   },
